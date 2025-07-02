@@ -2,6 +2,18 @@ const express = require('express');
 
 const app = express();
 
+// query way to get data
+app.get('/user', (req, res) => {
+    console.log(req.query);
+    res.send("Data sended by query using '?' ")
+});
+
+// params way to get data
+app.get('/user/:userId/:password', (req, res) => {
+    console.log(req.params);
+    res.send("Data taken by params using direct from url ")
+});
+
 app.get('/', (req, res) => res.send("api is hitting"));
 
 app.post('/user', (req, res) => res.send("Data save successfully."));
